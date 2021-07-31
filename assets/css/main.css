@@ -3911,8 +3911,8 @@ input, select, textarea {
 .inner img{
 	display: block;
 	background-color: white;
-	width: 150px;
-	height: 75px;
+	width: 300px;
+	height: 150px;
 	border-radius: 20px;
 	padding: 10px;
 }
