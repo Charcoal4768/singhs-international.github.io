@@ -3908,7 +3908,7 @@ input, select, textarea {
 
 		}
 
-.inner img{
+.inner img #logo{
 	display: block;
 	background-color: white;
 	width: 150px;
