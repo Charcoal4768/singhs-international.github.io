@@ -98,7 +98,7 @@ input, select, textarea {
 	}
 
 	body {
-		background: #312450;
+		background: #301245;
 	}
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
@@ -3907,3 +3907,12 @@ input, select, textarea {
 			}
 
 		}
+
+.inner img{
+	display: block;
+	background-color: white;
+	width: 150px;
+	height: 75px;
+	border-radius: 20px;
+	padding: 10px;
+}
