@@ -1,492 +1,300 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-<head>
-	<meta charset="utf-8">
-	<title>Singhs International</title>
-	<style type="text/css">
-		* {
-			border: 0;
-			box-sizing: border-box;
-			margin: 0;
-			padding: 0;
-		}
-		:root {
-			--fg: #17181c;
-			--shade1: #727274;
-			--shade2: #cccdd1;
-			--shade3: #f3f4f8;
-			--shade4: #ffffff;
-			--dur1: 1s;
-			--dur2: 6s;
-			font-size: calc(16px + (32 - 16)*(100vw - 320px)/(2560 - 320));
-		}
-		body {
-			background-image: linear-gradient(145deg,var(--shade3),var(--shade2));
-			color: var(--fg);
-			display: flex;
-			font: 1em/1.5 Hind, sans-serif;
-			flex-direction: column;
-			height: 100vh;
-		}
-		main {
-			margin: auto;
-		}
-		.preloader {
-			animation: largePopOut var(--dur1) linear;
-			border-radius: 50%;
-			box-shadow:
-				0.15em 0.15em 0.15em var(--shade4) inset,
-				-0.15em -0.15em 0.15em var(--shade1) inset,
-				1em 1em 2em var(--shade1), 
-				-1em -1em 2em var(--shade4);
-			margin-bottom: 3em;
-			position: relative;
-			width: 12em;
-			height: 12em;
-		}
-		.preloader__square {
-			animation: smallPopOut1 var(--dur1) linear, popInOut var(--dur2) var(--dur1) linear infinite;
-			border-radius: 0.5em;
-			box-shadow:
-				0.15em 0.15em 0.15em var(--shade4) inset,
-				-0.15em -0.15em 0.15em var(--shade1) inset,
-				0.25em 0.25em 0.5em var(--shade1),
-				-0.25em -0.25em 0.5em var(--shade4);
-			position: absolute;
-			top: 2.5em;
-			left: 2.5em;
-			width: 3em;
-			height: 3em;
-		}
-		.preloader__square:nth-child(n + 2):nth-child(-n + 3) {
-			left: 6.5em;
-		}
-		.preloader__square:nth-child(n + 3) {
-			top: 6.5em;
-		}
-		.preloader__square:nth-child(2) {
-			animation: smallPopOut2 var(--dur1) linear, move2 var(--dur2) var(--dur1) linear infinite;
-		}
-		.preloader__square:nth-child(3) {
-			animation: smallPopOut3 var(--dur1) linear, move3 var(--dur2) var(--dur1) linear infinite;
-		}
-		.preloader__square:nth-child(4) {
-			animation: smallPopOut4 var(--dur1) linear, move4 var(--dur2) var(--dur1) linear infinite;
-		}
-		.status {
-			animation: fadeIn var(--dur1) linear forwards;
-			text-align: center;
-		}
-		.status__dot {
-			animation: appear1 var(--dur1) var(--dur1) steps(1,start) infinite;
-			display: inline-block;
-		}
-		.status__dot:nth-child(2) {
-			animation: appear2 var(--dur1) var(--dur1) steps(1,start) infinite;
-		}
-		.status__dot:nth-child(3) {
-			animation: appear3 var(--dur1) var(--dur1) steps(1,start) infinite;
-		}
+	<head>
+		<title>Singhs International</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<style>
+			.inner img{
+				display: block;
+				background-color: white;
+				width: 150px;
+				height: 75px;
+				border-radius: 20px;
+				padding: 10px;
+			}
+		</style>
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
 
+		<!-- Sidebar -->
+			<section id="sidebar">
+				<div class="inner">
+					<nav>
+						<ul>
+							<li><a href="#intro">Welcome</a></li>
+							<li><a href="#one">Who we are</a></li>
+							<li><a href="producsts.html">Our products</a></li>
+						</ul>
+					</nav>
+				</div>
+			</section>
 
-		/* Animations */
-		@keyframes largePopOut {
-			from, 20% {
-				box-shadow:
-					0 0 0 var(--shade4) inset,
-					0 0 0 var(--shade1) inset,
-					0 0 0 var(--shade1), 
-					0 0 0 var(--shade4);
-			}
-			40% {
-				box-shadow:
-					0.15em 0.15em 0.15em var(--shade4) inset,
-					-0.15em -0.15em 0.15em var(--shade1) inset,
-					2em 2em 2em var(--shade1), 
-					-2em -2em 4em var(--shade4);
-			}
-			60%, to {
-				box-shadow:
-					0.15em 0.15em 0.15em var(--shade4) inset,
-					-0.15em -0.15em 0.15em var(--shade1) inset,
-					1em 1em 2em var(--shade1), 
-					-1em -1em 2em var(--shade4);
-			}
-		}
-		@keyframes smallPopOut1 {
-			from, 40% {
-				box-shadow:
-					0 0 0 var(--shade4) inset,
-					0 0 0 var(--shade1) inset,
-					0 0 0 var(--shade1), 
-					0 0 0 var(--shade4);
-			}
-			60% {
-				box-shadow:
-					0.15em 0.15em 0.15em var(--shade4) inset,
-					-0.15em -0.15em 0.15em var(--shade1) inset,
-					0.5em 0.5em 0.5em var(--shade1),
-					-0.5em -0.5em 1em var(--shade4);
-			}
-			80%, to {
-				box-shadow:
-					0.15em 0.15em 0.15em var(--shade4) inset,
-					-0.15em -0.15em 0.15em var(--shade1) inset,
-					0.25em 0.25em 0.5em var(--shade1),
-					-0.25em -0.25em 0.5em var(--shade4);
-			}
-		}
+		<!-- Wrapper -->
+			<div id="wrapper">
 
-		@keyframes smallPopOut2 {
-			from, 45% {
-				box-shadow:
-					0 0 0 var(--shade4) inset,
-					0 0 0 var(--shade1) inset,
-					0 0 0 var(--shade1), 
-					0 0 0 var(--shade4);
-			}
-			65% {
-				box-shadow:
-					0.15em 0.15em 0.15em var(--shade4) inset,
-					-0.15em -0.15em 0.15em var(--shade1) inset,
-					0.5em 0.5em 0.5em var(--shade1),
-					-0.5em -0.5em 1em var(--shade4);
-			}
-			85%, to {
-				box-shadow:
-					0.15em 0.15em 0.15em var(--shade4) inset,
-					-0.15em -0.15em 0.15em var(--shade1) inset,
-					0.25em 0.25em 0.5em var(--shade1),
-					-0.25em -0.25em 0.5em var(--shade4);
-			}
-		}
+				<!-- Intro -->
+					<section id="intro" class="wrapper style1 fullscreen fade-up">
+						<div class="inner">
+							<img src="images/logo-removebg-preview.png">
+							<h1 class="selection">Singhs International</h1>
+							<p>We are a Non-Profit organization</p>
+							<ul class="actions">
+								<li><a href="#one" class="button scrolly">Learn more</a></li>
+							</ul>
+						</div>
+					</section>
 
-		@keyframes smallPopOut3 {
-			from, 50% {
-				box-shadow:
-					0 0 0 var(--shade4) inset,
-					0 0 0 var(--shade1) inset,
-					0 0 0 var(--shade1), 
-					0 0 0 var(--shade4);
-			}
-			70% {
-				box-shadow:
-					0.15em 0.15em 0.15em var(--shade4) inset,
-					-0.15em -0.15em 0.15em var(--shade1) inset,
-					0.5em 0.5em 0.5em var(--shade1),
-					-0.5em -0.5em 1em var(--shade4);
-			}
-			90%, to {
-				box-shadow:
-					0.15em 0.15em 0.15em var(--shade4) inset,
-					-0.15em -0.15em 0.15em var(--shade1) inset,
-					0.25em 0.25em 0.5em var(--shade1),
-					-0.25em -0.25em 0.5em var(--shade4);
-			}
-		}
+				<!-- One -->
+					<section id="one" class="wrapper style2 spotlights">
+						<section>
+							<a href="#" class="image"><img src="images/hands_holding_earth.png" alt="" data-position="center center" style="height: 25%; width: 25%;"/></a>
+							<div class="content">
+								<div class="inner">
+									<h2>About Us:</h2>
+									<p>We are a Partnership-Firm that specializes and supports the trading, manufacturing, and promotion of Bio-degradable products. We are looking to partner with Government / Private Organisations which have the same views.</p>
+									<ul class="actions">
+										<li><a href="producsts.html" class="button">Our Products</a></li>
+									</ul>
+								</div>
+							</div>
+						</section>
+						<section>
+							<a href="#" class="image"><img src="images/erth.png" alt="" data-position="top center" /></a>
+							<div class="content">
+								<div class="inner">
+									<h2>How we started:</h2>
+									<p>Pollution, Global warming, Consumerism, and their effects on the environment made us realize that someone had to take action against this. We wanted to reduce pollution all over the world by Producing and supporting producers of Bio-Degradable products.</p>
+									<ul class="actions">
+										<li><a href="producsts.html" class="button">Our Products</a></li>
+									</ul>
+								</div>
+							</div>
+						</section>
+						<section>
+							<a href="#" class="image"><img src="images/agenda.png" alt="" data-position="25% 25%" /></a>
+							<div class="content">
+								<div class="inner">
+									<h2>Our Agenda</h2>
+									<p>We are planning to manufacture products which can prove effective for everyday use and be eco-friendly at the same time. We wish to one day see the world devoid of pollution or at least without much of it. We aim to reduce pollution in the environment and support others in doing so.</p>
+									<ul class="actions">
+										<li><a href="producsts.html" class="button">Our Products</a></li>
+									</ul>
+								</div>
+							</div>
+						</section>
+					</section>
 
-		@keyframes smallPopOut4 {
-			from, 55% {
-				box-shadow:
-					0 0 0 var(--shade4) inset,
-					0 0 0 var(--shade1) inset,
-					0 0 0 var(--shade1), 
-					0 0 0 var(--shade4);
-			}
-			75% {
-				box-shadow:
-					0.15em 0.15em 0.15em var(--shade4) inset,
-					-0.15em -0.15em 0.15em var(--shade1) inset,
-					0.5em 0.5em 0.5em var(--shade1),
-					-0.5em -0.5em 1em var(--shade4);
-			}
-			95%, to {
-				box-shadow:
-					0.15em 0.15em 0.15em var(--shade4) inset,
-					-0.15em -0.15em 0.15em var(--shade1) inset,
-					0.25em 0.25em 0.5em var(--shade1),
-					-0.25em -0.25em 0.5em var(--shade4);
-			}
-		}
-		@keyframes popInOut {
-			from {
-				box-shadow:
-					0.15em 0.15em 0.15em var(--shade4) inset,
-					-0.15em -0.15em 0.15em var(--shade1) inset,
-					0.25em 0.25em 0.5em var(--shade1),
-					-0.25em -0.25em 0.5em var(--shade4);
-				transform: translate(0,0);
-			}
-			4% {
-				box-shadow:
-					0.15em 0.15em 0.15em var(--shade4) inset,
-					-0.15em -0.15em 0.15em var(--shade1) inset,
-					0.5em 0.5em 0.5em var(--shade1),
-					-0.5em -0.5em 1em var(--shade4);
-				transform: translate(0,0);
-			}
-			8% {
-				box-shadow:
-					0 0 0 var(--shade4) inset,
-					0 0 0 var(--shade1) inset,
-					0 0 0 var(--shade1),
-					0 0 0 var(--shade4);
-				transform: translate(0,0);
-			}
-			12%, 16% {
-				box-shadow:
-					0 0 0 var(--shade4) inset,
-					0 0 0 var(--shade1) inset,
-					0 0 0 var(--shade1),
-					0 0 0 var(--shade4);
-				transform: translate(4em,0);
-			}
-			20% {
-				box-shadow:
-					0.15em 0.15em 0.15em var(--shade4) inset,
-					-0.15em -0.15em 0.15em var(--shade1) inset,
-					0.5em 0.5em 0.5em var(--shade1),
-					-0.5em -0.5em 1em var(--shade4);
-				transform: translate(4em,0);
-			}
-			24%, 25% {
-				box-shadow:
-					0.15em 0.15em 0.15em var(--shade4) inset,
-					-0.15em -0.15em 0.15em var(--shade1) inset,
-					0.25em 0.25em 0.5em var(--shade1),
-					-0.25em -0.25em 0.5em var(--shade4);
-				transform: translate(4em,0);
-			}
-			29% {
-				box-shadow:
-					0.15em 0.15em 0.15em var(--shade4) inset,
-					-0.15em -0.15em 0.15em var(--shade1) inset,
-					0.5em 0.5em 0.5em var(--shade1),
-					-0.5em -0.5em 1em var(--shade4);
-				transform: translate(4em,0);
-			}
-			33% {
-				box-shadow:
-					0 0 0 var(--shade4) inset,
-					0 0 0 var(--shade1) inset,
-					0 0 0 var(--shade1),
-					0 0 0 var(--shade4);
-				transform: translate(4em,0);
-			}
-			37%, 41% {
-				box-shadow:
-					0 0 0 var(--shade4) inset,
-					0 0 0 var(--shade1) inset,
-					0 0 0 var(--shade1),
-					0 0 0 var(--shade4);
-				transform: translate(4em,4em);
-			}
-			45% {
-				box-shadow:
-					0.15em 0.15em 0.15em var(--shade4) inset,
-					-0.15em -0.15em 0.15em var(--shade1) inset,
-					0.5em 0.5em 0.5em var(--shade1),
-					-0.5em -0.5em 1em var(--shade4);
-				transform: translate(4em,4em);
-			}
-			49%, 50% {
-				box-shadow:
-					0.15em 0.15em 0.15em var(--shade4) inset,
-					-0.15em -0.15em 0.15em var(--shade1) inset,
-					0.25em 0.25em 0.5em var(--shade1),
-					-0.25em -0.25em 0.5em var(--shade4);
-				transform: translate(4em,4em);
-			}
-			54% {
-				box-shadow:
-					0.15em 0.15em 0.15em var(--shade4) inset,
-					-0.15em -0.15em 0.15em var(--shade1) inset,
-					0.5em 0.5em 0.5em var(--shade1),
-					-0.5em -0.5em 1em var(--shade4);
-				transform: translate(4em,4em);
-			}
-			58% {
-				box-shadow:
-					0 0 0 var(--shade4) inset,
-					0 0 0 var(--shade1) inset,
-					0 0 0 var(--shade1),
-					0 0 0 var(--shade4);
-				transform: translate(4em,4em);
-			}
-			62%, 66% {
-				box-shadow:
-					0 0 0 var(--shade4) inset,
-					0 0 0 var(--shade1) inset,
-					0 0 0 var(--shade1),
-					0 0 0 var(--shade4);
-				transform: translate(0,4em);
-			}
-			70% {
-				box-shadow:
-					0.15em 0.15em 0.15em var(--shade4) inset,
-					-0.15em -0.15em 0.15em var(--shade1) inset,
-					0.5em 0.5em 0.5em var(--shade1),
-					-0.5em -0.5em 1em var(--shade4);
-				transform: translate(0,4em);
-			}
-			74%, 75% {
-				box-shadow:
-					0.15em 0.15em 0.15em var(--shade4) inset,
-					-0.15em -0.15em 0.15em var(--shade1) inset,
-					0.25em 0.25em 0.5em var(--shade1),
-					-0.25em -0.25em 0.5em var(--shade4);
-				transform: translate(0,4em);
-			}
-			79% {
-				box-shadow:
-					0.15em 0.15em 0.15em var(--shade4) inset,
-					-0.15em -0.15em 0.15em var(--shade1) inset,
-					0.5em 0.5em 0.5em var(--shade1),
-					-0.5em -0.5em 1em var(--shade4);
-				transform: translate(0,4em);
-			}
-			83% {
-				box-shadow:
-					0 0 0 var(--shade4) inset,
-					0 0 0 var(--shade1) inset,
-					0 0 0 var(--shade1),
-					0 0 0 var(--shade4);
-				transform: translate(0,4em);
-			}
-			87%, 91% {
-				box-shadow:
-					0 0 0 var(--shade4) inset,
-					0 0 0 var(--shade1) inset,
-					0 0 0 var(--shade1),
-					0 0 0 var(--shade4);
-				transform: translate(0,0);
-			}
-			95% {
-				box-shadow:
-					0.15em 0.15em 0.15em var(--shade4) inset,
-					-0.15em -0.15em 0.15em var(--shade1) inset,
-					0.5em 0.5em 0.5em var(--shade1),
-					-0.5em -0.5em 1em var(--shade4);
-				transform: translate(0,0);
-			}
-			99%, to {
-				box-shadow:
-					0.15em 0.15em 0.15em var(--shade4) inset,
-					-0.15em -0.15em 0.15em var(--shade1) inset,
-					0.25em 0.25em 0.5em var(--shade1),
-					-0.25em -0.25em 0.5em var(--shade4);
-				transform: translate(0,0);
-			}
-		}
-		@keyframes move2 {
-			from, 8% {
-				transform: translate(0,0);
-				width: 3em;
-				height: 3em;
-			}
-			12% {
-				transform: translate(-4em,0);
-				width: 7em;
-				height: 3em;
-			}
-			16%, 83% {
-				transform: translate(-4em,0);
-				width: 3em;
-				height: 3em;
-			}
-			87% {
-				transform: translate(-4em,0);
-				width: 3em;
-				height: 7em;
-			}
-			91%, to {
-				transform: translate(-4em,4em);
-				width: 3em;
-				height: 3em;
-			}
-		}
-		@keyframes move3 {
-			from, 33% {
-				transform: translate(0,0);
-				height: 3em;
-			}
-			37% {
-				transform: translate(0,-4em);
-				height: 7em;
-			}
-			41%, to {
-				transform: translate(0,-4em);
-				height: 3em;
-			}
-		}
-		@keyframes move4 {
-			from, 58% {
-				transform: translate(0,0);
-				width: 3em;
-			}
-			62% {
-				transform: translate(0,0);
-				width: 7em;
-			}
-			66%, to {
-				transform: translate(4em,0);
-				width: 3em;
-			}
-		}
-		@keyframes fadeIn {
-			from, 67% {
-				opacity: 0;
-			}
-			83.3%, to {
-				opacity: 1;
-			}
-		}
-		@keyframes appear1 {
-			from {
-				visibility: hidden;
-			}
-			33%, to {
-				visibility: visible;
-			}
-		}
-		@keyframes appear2 {
-			from, 33% {
-				visibility: hidden;
-			}
-			67%, to {
-				visibility: visible;
-			}
-		}
-		@keyframes appear3 {
-			from, 67% {
-				visibility: hidden;
-			}
-			to {
-				visibility: visible;
-			}
-		}
+		<!-- Footer -->
+			<footer id="footer" class="wrapper style1-alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; Untitled. All rights reserved.</li><li>Made By: <a href="http://google.com">Vatsal Dwivedi.</a></li>
+					</ul>
+				</div>
+			</footer>
 
-		/* Dark mode */
-		@media (prefers-color-scheme: dark) {
-			:root {
-				--fg: #e3e4e8;
-				--shade1: #23252a;
-				--shade2: #3e424c;
-				--shade3: #4a4e5a;
-				--shade4: #686e7e;
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script>
+				var selectionElements = document.querySelectorAll('.selection');
+				selectionElements.forEach(function(element){
+					element.setAttribute('original-content', element.innerHTML);  // this will be needed to reset to original after a selection has been made
+					element.addEventListener('mouseup', function() {
+						replaceContentWithSelectionWrapper(this)
+					});
+				});
+
+				function replaceContentWithSelectionWrapper(element) {
+					let selection = window.getSelection().toString();
+					if(selection.length <= 0) { // if selection length is not bigger then 0 we can stop right here
+						return;
+					}
+					// next lines should be self explanatory
+					// get start of string until selection
+					// get the end of string after selection
+					// concatenate all strings back together
+					let selObj = window.getSelection(); 
+					let selRange = selObj.getRangeAt(0);
+					let originalString = element.innerHTML;
+					let start = originalString.substr(0, selRange.startOffset);
+					let end = originalString.substr(selRange.endOffset);
+					element.innerHTML = start + '<span class="mark-special-selected">' + selection + '</span>' + end;
+					document.body.classList.add('selections-enabled');
+				}
+
+				function clearSelections() {
+					var selections = document.querySelectorAll('[original-content]');
+					selections.forEach(function(selection){
+						selection.innerHTML = selection.getAttribute('original-content');
+					});
+				}
+
+				document.body.addEventListener('mousedown', function(){
+					if(document.body.classList.contains('selections-enabled')) {
+						document.body.classList.remove('selections-enabled');
+						clearSelections();
+					}
+				});
+			</script>
+
+	</body>
+</html>
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Singhs International</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<style>
+			.inner img{
+				display: block;
+				background-color: white;
+				width: 150px;
+				height: 75px;
+				border-radius: 20px;
+				padding: 10px;
 			}
-		}
-	</style>
-</head>
-<body>
-	<main>
-		<div class="preloader">
-			<div class="preloader__square"></div>
-			<div class="preloader__square"></div>
-			<div class="preloader__square"></div>
-			<div class="preloader__square"></div>
-		</div>
-		<div class="status" style="font-family: monospace; font-weight: 700;">Website Under Construction<span class="status__dot">.</span><span class="status__dot">.</span><span class="status__dot">.</span></div>
-	</main>
-</body>
+		</style>
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Sidebar -->
+			<section id="sidebar">
+				<div class="inner">
+					<nav>
+						<ul>
+							<li><a href="#intro">Welcome</a></li>
+							<li><a href="#one">Who we are</a></li>
+							<li><a href="producsts.html">Our products</a></li>
+						</ul>
+					</nav>
+				</div>
+			</section>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Intro -->
+					<section id="intro" class="wrapper style1 fullscreen fade-up">
+						<div class="inner">
+							<img src="images/logo-removebg-preview.png">
+							<h1 class="selection">Singhs International</h1>
+							<p>We are a Non-Profit organization</p>
+							<ul class="actions">
+								<li><a href="#one" class="button scrolly">Learn more</a></li>
+							</ul>
+						</div>
+					</section>
+
+				<!-- One -->
+					<section id="one" class="wrapper style2 spotlights">
+						<section>
+							<a href="#" class="image"><img src="images/hands_holding_earth.png" alt="" data-position="center center" style="height: 25%; width: 25%;"/></a>
+							<div class="content">
+								<div class="inner">
+									<h2>About Us:</h2>
+									<p>We are a Partnership-Firm that specializes and supports the trading, manufacturing, and promotion of Bio-degradable products. We are looking to partner with Government / Private Organisations which have the same views.</p>
+									<ul class="actions">
+										<li><a href="producsts.html" class="button">Our Products</a></li>
+									</ul>
+								</div>
+							</div>
+						</section>
+						<section>
+							<a href="#" class="image"><img src="images/erth.png" alt="" data-position="top center" /></a>
+							<div class="content">
+								<div class="inner">
+									<h2>How we started:</h2>
+									<p>Pollution, Global warming, Consumerism, and their effects on the environment made us realize that someone had to take action against this. We wanted to reduce pollution all over the world by Producing and supporting producers of Bio-Degradable products.</p>
+									<ul class="actions">
+										<li><a href="producsts.html" class="button">Our Products</a></li>
+									</ul>
+								</div>
+							</div>
+						</section>
+						<section>
+							<a href="#" class="image"><img src="images/agenda.png" alt="" data-position="25% 25%" /></a>
+							<div class="content">
+								<div class="inner">
+									<h2>Our Agenda</h2>
+									<p>We are planning to manufacture products which can prove effective for everyday use and be eco-friendly at the same time. We wish to one day see the world devoid of pollution or at least without much of it. We aim to reduce pollution in the environment and support others in doing so.</p>
+									<ul class="actions">
+										<li><a href="producsts.html" class="button">Our Products</a></li>
+									</ul>
+								</div>
+							</div>
+						</section>
+					</section>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper style1-alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; Untitled. All rights reserved.</li><li>Made By: <a href="http://google.com">Vatsal Dwivedi.</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script>
+				var selectionElements = document.querySelectorAll('.selection');
+				selectionElements.forEach(function(element){
+					element.setAttribute('original-content', element.innerHTML);  // this will be needed to reset to original after a selection has been made
+					element.addEventListener('mouseup', function() {
+						replaceContentWithSelectionWrapper(this)
+					});
+				});
+
+				function replaceContentWithSelectionWrapper(element) {
+					let selection = window.getSelection().toString();
+					if(selection.length <= 0) { // if selection length is not bigger then 0 we can stop right here
+						return;
+					}
+					// next lines should be self explanatory
+					// get start of string until selection
+					// get the end of string after selection
+					// concatenate all strings back together
+					let selObj = window.getSelection(); 
+					let selRange = selObj.getRangeAt(0);
+					let originalString = element.innerHTML;
+					let start = originalString.substr(0, selRange.startOffset);
+					let end = originalString.substr(selRange.endOffset);
+					element.innerHTML = start + '<span class="mark-special-selected">' + selection + '</span>' + end;
+					document.body.classList.add('selections-enabled');
+				}
+
+				function clearSelections() {
+					var selections = document.querySelectorAll('[original-content]');
+					selections.forEach(function(selection){
+						selection.innerHTML = selection.getAttribute('original-content');
+					});
+				}
+
+				document.body.addEventListener('mousedown', function(){
+					if(document.body.classList.contains('selections-enabled')) {
+						document.body.classList.remove('selections-enabled');
+						clearSelections();
+					}
+				});
+			</script>
+
+	</body>
 </html>
