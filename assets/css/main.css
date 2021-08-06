@@ -3908,11 +3908,10 @@ input, select, textarea {
 
 		}
 
-.inner img{
-	display: block;
-	background-color: white;
-	width: 150px;
-	height: 75px;
-	border-radius: 20px;
-	padding: 10px;
+.mark-special-selected,
+.selection::selection{
+  background : rgb(130, 143, 216);
+  border : 1px solid transparent;
+  border-radius : 15px;
+  outline: 2px;
 }
